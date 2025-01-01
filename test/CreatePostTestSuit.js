@@ -32,7 +32,7 @@
 
     after(async function () {
         //close the browser
-        //await driver.quit();
+        await driver.quit();
     });
 
     it('tc1: check if user can create a post while logged in', async function () {
