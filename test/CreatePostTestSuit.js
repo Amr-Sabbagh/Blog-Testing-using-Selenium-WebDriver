@@ -13,7 +13,7 @@
  let driver;
  const url = 'http://localhost:3000'; // Replace with your app's URL
 
- describe.only('Create Post Tests Suit', function () {
+ describe('Create Post Tests Suit', function () {
 
     before(async function(){
         //open google chrome browser
@@ -38,13 +38,13 @@
     it('tc1: check if user can create a post while logged in', async function () {
        //locate create post button and click it
        await driver.findElement(By.xpath("//li[text()='Create Post']")).click();
-       //locate the post content box and enter any text
+       //locate the post title box and enter any text
        await driver.findElement(By.xpath("//input[@placeholder='Post title']")).sendKeys("Logged In User Post");
        //locate the post content box and enter any text
        await driver.findElement(By.xpath("//textarea[@placeholder='Post content']")).sendKeys("logged in user can create a post content");
        //locate the create post button and click it
        await driver.findElement(By.xpath("//button[text()='Create Post']")).click();
-       //locate post's cards
+       //locate post's card
        let posttitle = await driver.findElement(By.css(".posts-list > .post-card:first-child")).getText();
        let postcontent = await driver.findElement(By.css(".posts-list > .post-card:first-child > p")).getText();
        //check if the post were created
@@ -59,7 +59,7 @@
         await driver.findElement(By.xpath("//textarea[@placeholder='Post content']")).sendKeys("This is a post without a title");
         //locate the create post button and click it
         await driver.findElement(By.xpath("//button[text()='Create Post']")).click();
-        //locate post's cards
+        //locate post's card
         let postcard = await driver.findElement(By.css(".posts-list > .post-card:first-child > p")).getText();
         //check if the post were created
         expect(postcard).to.equal('This is a post without a title');
@@ -68,7 +68,7 @@
     it('tc3: check if create a post with a blank title', async function () {
         //locate create post button and click it
         await driver.findElement(By.xpath("//li[text()='Create Post']")).click();
-        //locate the post content box and enter any text
+        //locate the post title box and enter any text
         await driver.findElement(By.xpath("//input[@placeholder='Post title']")).sendKeys("This is a post without a content");
         //locate the create post button and click it
         await driver.findElement(By.xpath("//button[text()='Create Post']")).click();
@@ -81,7 +81,7 @@
     it('tc4: check if user can create a post with a special char title', async function () {
         //locate create post button and click it
         await driver.findElement(By.xpath("//li[text()='Create Post']")).click();
-        //locate the post content box and enter any text
+        //locate the post title box and enter any text
         await driver.findElement(By.xpath("//input[@placeholder='Post title']")).sendKeys("@@@");
         //locate the create post button and click it
         await driver.findElement(By.xpath("//button[text()='Create Post']")).click();
