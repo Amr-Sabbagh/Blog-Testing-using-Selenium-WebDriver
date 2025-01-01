@@ -116,7 +116,7 @@
      
      
      it('tc8: check if user can login if valid credentials were  entered', async function () {
-         //locate the username input and fill it with an valid username
+         //locate the username input and fill it with a valid username
          await driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("admin");
          //locate the password input and fill it with a valid passowrd
          await driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("admin123");
@@ -129,18 +129,18 @@
      });
 
      it('tc9: check if user can logout after login', async function () {
-      //locate the username input and fill it with an valid username
-      await driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("admin");
-      //locate the password input and fill it with a valid passowrd
-      await driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("admin123");
-      //locate the login button and click
-      await driver.findElement(By.xpath("//button[text()='Login']")).click();
-      //locate the logout button and click it
-      await driver.findElement(By.xpath("//li[text()='Logout']")).click();
-      //locate the navigation element to check if logout passed
-      let loggeoutelements = await driver.findElements(By.xpath("//ul"));
-      //check if the application logged out the user
-      expect(loggeoutelements).to.not.include('Create Post');
+        //locate the username input and fill it with an valid username
+        await driver.findElement(By.xpath("//input[@placeholder='Username']")).sendKeys("admin");
+        //locate the password input and fill it with a valid passowrd
+        await driver.findElement(By.xpath("//input[@placeholder='Password']")).sendKeys("admin123");
+        //locate the login button and click
+        await driver.findElement(By.xpath("//button[text()='Login']")).click();
+        //locate the logout button and click it
+        await driver.findElement(By.xpath("//li[text()='Logout']")).click();
+        //locate the navigation element to check if logout passed
+        let loggeoutelements = await driver.findElements(By.xpath("//ul"));
+        //check if the application logged out the user
+        expect(loggeoutelements).to.not.include('Create Post');
   });
 
-});     
+});
